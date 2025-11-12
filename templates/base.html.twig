@@ -9,6 +9,7 @@
 
         {% block javascripts %}
         {% endblock %}
+
     </head>
     <body>
         {% block body %}
@@ -17,8 +18,49 @@
             <h1>{{ titre }}</h1>
 
             {# Affichage du contenu de la page #}
-            <p>{{ contenu }}</p>            
+            <p>{{ contenu }}</p>
 
+            {# balise set #}
+            {% set exemple = 'Chaîne' %}
+            {% set tableauNumerique = [1,2,3] %}
+            {% set tableauAssociatif = {'nom' : 'Dupont', 'prenom' : 'Jean'} %}
+            {% set manote = 8 %}
+
+            {# Test Moteur de template Twig #}
+            {# Variables #}
+            <p>Type chaîne de caractères : {{ chaine }}</p>            
+            <p>Type entier : {{ nombre }}</p>            
+            <p>Type tableau : {{ tableau.cle1 }}</p>            
+            <p>Type objet : {{ objet.prop1 }}</p>
+            <p>Balise set : {{ exemple }}</p>            
+            <ul>
+                {% for num in tableauNumerique %}
+                    <li>{{ num }}</li>
+                {% endfor %}
+            </ul>            
+            <p>Balise set : {{ tableauAssociatif.nom }}</p>            
+            <p>Balise set : {{ tableauAssociatif.prenom }}</p>
+            {# filtres #} 
+            <p>Nombre de caractères de la chaîne avec filtre length : {{ exemple | raw | length }}</p> 
+            <p>
+            {% apply upper %}
+                {{ tableauAssociatif.prenom }} {{ tableauAssociatif.nom }}
+            {% endapply %} 
+            </p> 
+            {# fonctions #} 
+            <p>{{ max(1,2,3) }}</p>
+            <p>{{ min([1,2,3]) }}</p>
+            <p>{{ max(tableauNumerique) }}</p>
+            <p>{{ date() | date('d/m/Y') }}</p>
+            {# conditions #}
+            {% if manote > 15 %}
+                <p>C'est une très bonne note</p>
+            {% elseif manote > 10 %}
+                <p>La note est correcte</p>
+            {% else %}
+                <p>La note est insuffisante</p>
+            {% endif %}
+            
         {% endblock %}
     </body>
 </html>
