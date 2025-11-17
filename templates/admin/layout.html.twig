@@ -1,0 +1,35 @@
+{# templates/admin/layout.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3" style="min-height: 100vw; width: 250px;">
+        <h4 class="mb-4">Admin</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="{{ path('app_admin') }}" class="nav-link text-white-50">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white-50">Utilisateurs</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white-50">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white-50">Paramètres</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('app_logout') }}" class="nav-link text-white-50">Déconnexion</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow-1 p-4 bg-light">
+        {% block admin_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
+    

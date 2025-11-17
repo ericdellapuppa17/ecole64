@@ -24,7 +24,7 @@ final class HomeController extends AbstractController {
         );
 
         return $this->render(
-            'base.html.twig', [
+            'home/index.html.twig', [
                 'titre' => 'Page d\'accueil',
                 'contenu' => 'Bienvenue sur la page d\'accueil du site',
                 // test de moteur de template Twig

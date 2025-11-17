@@ -16,7 +16,6 @@ class Professeurs
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(name: "professeur_id", type: "integer")]
-
     private ?int $professeur_id = null;
 
     #[ORM\Column(length: 255)]

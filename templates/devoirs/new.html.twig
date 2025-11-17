@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Nouveau Devoir</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_start(form, {'attr' : {'novalidate':'novalidate'}}) }}
+        {{ form_row(form.cour) }}
+        {{ form_row(form.devoir_nom, {'attr':{ 'placeholder' : 'Nom du devoir'}}) }}
+        {{ form_row(form.devoir_desc, {'attr':{ 'class' : 'text-danger' }}) }}
+        <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
+    {{ form_end(form) }}
+
+{% endblock %}
